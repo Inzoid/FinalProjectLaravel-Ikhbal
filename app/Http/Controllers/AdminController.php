@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        return view('home.index');
+        $user = User::all();
+        return view('home.index')->with('user', $user);
     }
 
     public function create()
@@ -23,7 +25,8 @@ class AdminController extends Controller
 
     public function show()
     {
-        return view('home.table');
+        $user = User::all();
+        return view('home.table')->with('user', $user);
     }
 
     public function edit($id)

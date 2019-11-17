@@ -97,7 +97,7 @@
     
   <div class="main-content">
                   @if(session('notice'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-default">
                                 <strong>{!!session('notice') !!}</strong>
                         </div>
                   @endif

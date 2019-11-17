@@ -21,7 +21,7 @@
                 @endif
 
               @if(session('notice'))
-                      <div class="alert alert-sucess">
+                      <div class="alert alert-default">
                               <strong>{!!session('notice') !!}</strong>
                       </div>
                 @endif
