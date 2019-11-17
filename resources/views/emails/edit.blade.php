@@ -10,33 +10,19 @@
             <div class="card-header bg-transparent pb-5">
               <div class="btn-wrapper text-center">
                 <a href="#" class="btn btn-neutral btn-icon">
-                  <img src="../assets/img/icons/common/zoid.png" width="180" height="100">
+                    <h3>Forgot Password</h3>
                 </a>            
               </div><br><br>
 
-            <form action="{{ route('login.store') }}" method="POST">
-                {{ csrf_field()}}
-      
-                @if(session('notice'))
-                      <div class="alert alert-success">
-                              <strong>{!!session('notice') !!}</strong>
-                      </div>
-                @endif
-
-                @if(session('error'))
-                      <div class="alert alert-danger">
-                              <strong>{!!session('error') !!}</strong>
-                      </div>
-                @endif
-                
-
+      <form action="{{ route('reminder.edit', ['id' => $id,'code'=> $code]) }}" method="post">
+          {{ csrf_field() }} 
               <form role="form">
                 <div class="form-group">
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" name="email" placeholder="Email" type="email">
+                    <input class="form-control" name="password" placeholder="Password" type="password">
                   </div>
                 </div>
 
@@ -45,17 +31,12 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" name="password" placeholder="Password" type="password">
+                    <input class="form-control" name="password_confirmation" placeholder="Password Confirmation" type="password">
                   </div>
                 </div>
-                <div class="custom-control custom-control-alternative custom-checkbox">
-                  <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
-                  <label class="custom-control-label" for=" customCheckLogin">
-                    <span class="text-muted">Remember me</span>
-                  </label>
-                </div>
+                
                 <div class="text-center">
-                  <input type="submit" class="btn btn-primary my-4" value="Sign in">
+                  <input type="submit" class="btn btn-primary my-4" value="Edit Password">
                 </div>
               </form>
             </div>
@@ -75,5 +56,5 @@
       </div>
     </div>
   </div>
-
-@endsection
+  
+  @endsection
