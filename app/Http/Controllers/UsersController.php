@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use Sentinel;
 use Session;
-use App\Http\Requests\UserRequest;
 
 class UsersController extends Controller
 {
