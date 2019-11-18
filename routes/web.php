@@ -5,8 +5,14 @@ Route::get('/', function () {
 });
 
 //route admin
+Route::resource('/admin', 'AdminController');
 Route::get('/admin', 'AdminController@index');
-Route::get('/table', 'AdminController@show');
+Route::get('/table', 'AdminController@show')->name('user');
+Route::get('/create', 'AdminController@create')->name('create');
+Route::post('/create', 'AdminController@store')->name('create.user');
+Route::get('/edit', 'AdminController@edit')->name('edit.user');
+Route::get('/card', 'AdminController@card')->name('edit.user');
+
 
 //route signup atau register user
 Route::get('signup', 'UsersController@signup')->name('signup');
