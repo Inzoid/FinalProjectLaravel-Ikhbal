@@ -35,13 +35,13 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-first-name">First name</label>
-                        <input type="text" name="first_name" class="form-control form-control-alternative">
+                        <input type="text" name="first_name" class="form-control form-control-alternative" placeholder="First">
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-last-name">Last name</label>
-                        <input type="text" name="last_name" class="form-control form-control-alternative" >
+                        <input type="text" name="last_name" class="form-control form-control-alternative"  placeholder="Last">
                       </div>
                     </div>
                   </div>
@@ -70,17 +70,10 @@
                         <label class="form-control-label" for="input-country">Konfirmasi Password</label>
                         <input type="password" name="password_confirmation" class="form-control form-control-alternative" placeholder="" value="">
                       </div>
-                    </div>
-                    
+                    </div>                  
                   </div>
-                </div>
-               
-                
-
-            <input type="submit" value="Create User" class="btn btn-primary btn-md text-white">
-      
-        
-
+                </div>        
+              <input type="submit" value="Create User" class="btn btn-primary btn-md text-white">
             </div>
           </div>
         </div>

@@ -1,5 +1,7 @@
 @extends('layout.login')
 @section('container')
+@section('title', 'Login')
+
     
 <!-- Page content -->
     <div class="container mt--8 pb-5">

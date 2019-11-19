@@ -1,10 +1,10 @@
 @extends ('layout.admin')
 @section ('container')
-@section('title', 'Tambah User')
+@section('title', 'Edit User')
 
 <div class="container mt-3">
 
-@if ($errors->any())
+    @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -27,8 +27,9 @@
             </div>
             <div class="card-body">
         
-                <form action="{{ route('create.user') }}" method="POST">
-                    {{ csrf_field() }}
+            <form action="{{ route('admin.update', $user->id) }}" method="post" 
+              enctype="multipart/form-data">
+                {{ csrf_field() }}    {{ method_field('put') }}
                 <h6 class="heading-small text-muted mb-4">User information</h6>
                 <div class="pl-lg-4">
                   <div class="row">
@@ -57,27 +58,12 @@
                         <input name="email" class="form-control form-control-alternative" placeholder="Email" type="email" value="{{ $user->email }}">
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-4">
-                      <div class="form-group">
-                        <label class="form-control-label">Password</label>
-                        <input type="password" name="password" class="form-control form-control-alternative">
-                      </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="form-group">
-                        <label class="form-control-label" for="input-country">Konfirmasi Password</label>
-                        <input type="password" name="password_confirmation" class="form-control form-control-alternative" placeholder="" value="">
-                      </div>
-                    </div>
+                  </div> 
                     
                   </div>
                 </div>
-               
-                
-
-            <input type="submit" value="Create User" class="btn btn-primary btn-md text-white">
+               </div>
+                 <input type="submit" value="Edit User" class="btn btn-primary btn-md text-white">
       
         
 

@@ -105,12 +105,19 @@
           
           <li class="nav-item">
             <a class="nav-link" href="/table">
-            <i class="ni ni-bullet-list-67 text-primary"></i> Table
+            <i class="ni ni-badge text-primary"></i> Admin 
             </a>
           </li>
+          
           <li class="nav-item">
-            <a class="nav-link" href="./examples/tables.html">
-              <i class="ni ni-email-83 text-primary"></i></i> E-Mail
+            <a class="nav-link" href="/table">
+            <i class="ni ni-single-02 text-primary"></i> User 
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('company') }}">
+            <i class="ni ni-hat-3 text-primary"></i> Company 
             </a>
           </li>
 

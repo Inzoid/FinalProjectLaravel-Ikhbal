@@ -48,7 +48,9 @@ class AdminController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id)->update($request->all());
+        Session::flash('notice', 'Update user success');
+        return redirect()->route('user', $id);
     }
 
     public function destroy($id)

@@ -30,3 +30,8 @@ Route::post('/forgot-password', 'ReminderController@store')->name('email.store')
 //Reset password
 Route::get('reset-password/{id}/{token}', 'ReminderController@edit')->name('reminder.edit');
 Route::post('reset-password/{id}/{token}','ReminderController@update')->name('reminder.update');
+
+//Company
+Route::get('company', 'CompanyController@index')->name('company');
+Route::get('create_company', 'CompanyController@create')->name('create.company');
+Route::post('create_company', 'CompanyController@store')->name('company.store');
