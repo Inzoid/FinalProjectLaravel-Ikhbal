@@ -30,7 +30,7 @@
                   <strong>{!!session('notice') !!}</strong>
           </div>
     @endif
-            <form action="{{ route('signup.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('signup.store') }}" method="POST">
             {{ csrf_field() }}      
   
               <form role="form">
@@ -60,15 +60,6 @@
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
                     <input class="form-control" name="email" placeholder="Email" type="email">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <div class="input-group input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-single-02"></i></span>
-                    </div>
-                    <input class="form-control" name="profile_image" placeholder="profile_image" type="file">
                   </div>
                 </div>
 

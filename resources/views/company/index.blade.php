@@ -51,9 +51,8 @@
                       {{$a->waktu_bekerja}}
                     </td>         
                     <td>
-        <form action="{{ route('company.destroy', $a->id) }}" method="POST">    
-                   
-          <a class="btn btn-icon ni ni-settings text-primary" 
+      <form action="{{ route('company.destroy', $a->id) }}" method="POST">    
+        <a class="btn btn-icon ni ni-settings text-primary" 
           href="{{ route( 'company.edit', $a->id ) }}" data-toggle="tooltip" data-original-title="Edit"></a>
 
           {{ csrf_field() }} {{ method_field('delete') }}  

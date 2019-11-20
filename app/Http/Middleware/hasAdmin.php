@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Sentinel;
+use Session;
 
 class hasAdmin
 {
@@ -19,6 +20,6 @@ class hasAdmin
         if(Sentinel::getUser()->roles()->first()->slug == 'admin') {
             return $next($request);
         }
-            return redirect()->route('index');
+            return redirect()->route('biodata');
     }
 }

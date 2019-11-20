@@ -37,12 +37,14 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        $path = '/images/perusahaan/';
-        $company = new company();
-        if ($request->foto_perusahaan) {
-            $foto = 'perusahaan-' . str_random() . time() . '.' . $request->file('foto_perusahaan')->getClientOriginalExtension();
-            $request->foto_perusahaan->move(public_path($path), $foto);
-            $company->foto_perusahaan = $foto;
+        //upload profile_image
+        $patchImage = '/images/company';
+        if ($request->profile_image) {
+            //rename file yang diupload menjadi users-random.extension file
+            $profile_image ='company-'.str_random(5).time().'.'.$request->file('image')->getClientOriginalExtension();
+            //path lokasi penyimpanan file public/images/users/
+            $request->profile_image->move(public_path($patchImage), $profile_image);
+            $company->image = $profile_image;
         }
 
         $company = new Company;

@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Biodata;
+use App\User;
+use App\Role;
+use Sentinel;
+use Session;
 
 class BiodataController extends Controller
 {
@@ -13,7 +18,8 @@ class BiodataController extends Controller
      */
     public function index()
     {
-        //
+        $biodata = Biodata::all();
+        return view('biodata.index')->with('biodata', $biodata);
     }
 
     /**
@@ -23,7 +29,7 @@ class BiodataController extends Controller
      */
     public function create()
     {
-        //
+        return view('biodata.create');
     }
 
     /**
@@ -34,7 +40,23 @@ class BiodataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $biodata = Biodata::where('user_id', Sentinel::getUser()->id)->first();
+        $user_id = Sentinel::getUser()->id;
+        $biodata = new Biodata;
+        $biodata->user_id = $user_id;
+        $biodata->nama = $request->nama;
+        $biodata->tempat_lahir = $request->tempat_lahir;
+        $biodata->tgl_lahir = $request->tgl_lahir;
+        $biodata->alamat = $request->alamat;
+        $biodata->kota = $request->kota;
+        $biodata->negara = $request->negara;
+        $biodata->kode_pos = $request->kode_pos;
+        $biodata->keterangan = $request->keterangan;
+        $biodata->cv = $request->cv;
+        $biodata->pendidikan = $request->pendidikan;
+        $biodata->save();
+        Session::flash('notice', 'Update Profile Sukses');
+        return redirect()->back();
     }
 
     /**

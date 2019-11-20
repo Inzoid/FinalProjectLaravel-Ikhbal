@@ -97,7 +97,7 @@
                   <img class="card-img-top" src="../../assets/img/theme/team-1-800x800.jpg" alt="Card image cap" width="200" height="270">
                   <div class="card-body">
                     <h5 class="card-title">{{$job->nama_perusahaan}}</h5>
-                    <p class="card-text">{{str_limit($job->deskripsi, 120)}}</p>
+                    <p class="card-text">{{str_limit($job->deskripsi, 60)}}</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                   </div>
                 </div>

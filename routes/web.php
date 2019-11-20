@@ -42,3 +42,8 @@ Route::post('create_company', 'CompanyController@store')->name('company.store');
 Route::get('edit_company', 'CompanyController@edit')->name('company.edit');
 Route::post('edit_company', 'CompanyController@update')->name('company.update');
 Route::get('job', 'CompanyController@job')->name('company.job');
+
+//Biodata
+
+Route::resource('/biodata', 'BiodataController');
+Route::get('biodata', 'BiodataController@index')->name('biodata');
