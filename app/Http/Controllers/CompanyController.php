@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Company;
+use Illuminate\Http\Request;
 use Session, Sentinel;
 
 class CompanyController extends Controller
@@ -37,6 +37,14 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
+        $path = '/images/perusahaan/';
+        $company = new company();
+        if ($request->foto_perusahaan) {
+            $foto = 'perusahaan-' . str_random() . time() . '.' . $request->file('foto_perusahaan')->getClientOriginalExtension();
+            $request->foto_perusahaan->move(public_path($path), $foto);
+            $company->foto_perusahaan = $foto;
+        }
+
         $company = new Company;
         $company->nama_perusahaan = $request->nama_perusahaan;
         $company->judul_pekerjaan = $request->judul_pekerjaan;
@@ -45,6 +53,7 @@ class CompanyController extends Controller
         $company->waktu_bekerja = $request->waktu_bekerja;
         $company->deskripsi = $request->deskripsi;
         $company->save();
+        // dd($request->all());
         Session::flash("notice", "Job success created");
         return redirect()->route("company");
     }
@@ -68,8 +77,9 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+        $company = Company::find($id);
+        return view('company.edit')->with('company',$company);
+    } 
 
     /**
      * Update the specified resource in storage.
@@ -91,6 +101,14 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Company::destroy($id);
+        Session::flash('notice', 'Hapus Data Company Sukeses');
+        return redirect()->back();
+    }
+
+    public function job()
+    {
+        $company = Company::all();
+        return view('company.job')->with('company', $company);
     }
 }

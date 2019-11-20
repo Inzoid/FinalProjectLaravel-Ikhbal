@@ -42,7 +42,7 @@
                     </td>
                     <td>
                         <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="{{$a->first_name}}">
-                          <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                          <img src="{{$a->profile_image}}" class="rounded-circle">
                         </a>
                       </div>
                     </td>

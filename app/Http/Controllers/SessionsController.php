@@ -22,7 +22,7 @@ class SessionsController extends Controller
     {
         if($user = Sentinel::authenticate($request->all())) {
             Session::flash('notice', 'Welcome ' . $user->email );
-            return redirect('/admin');
+            return redirect('/admin/admin');
         } else {
             Session::flash('error', 'Login Gagal');
             return redirect('/login');

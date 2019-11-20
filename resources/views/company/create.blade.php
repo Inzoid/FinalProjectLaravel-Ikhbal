@@ -49,6 +49,13 @@
                         <input type="text" name="gaji" class="form-control form-control-alternative" placeholder="400000">
                       </div>
                     </div>
+
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-last-name">Image</label>
+                        <input type="file" name="image" class="form-control form-control-alternative" placeholder="400000">
+                      </div>
+                    </div>
                   </div>
                 </div>
                 

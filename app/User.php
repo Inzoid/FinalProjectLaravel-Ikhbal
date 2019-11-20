@@ -19,7 +19,7 @@ class User extends Authenticatable
     protected $dates = ['deleted_at'];
     protected $table = 'users';
     protected $fillable = [
-        'email', 'password','first_name','last_name'
+        'email', 'password','first_name','last_name','profile_image'
     ];
 
     /**
@@ -54,5 +54,23 @@ class User extends Authenticatable
     public function hasRole($roles)
     {
         return null !== $this->roles()->whereIn('name', $roles)->first();
+    }
+
+    public function img_users()
+    {
+        //cek file exist di folder img
+        if (file_exists(public_path().'/images/users/'.$this->profile_image) && $this->profile_image != null) {
+            //jika ada tapilkan image hasil upload
+            return url('/images/users/'.$this->profile_image);
+        }else {
+            //jika tidak ada, tampilkan gambar default
+            return url('/images/user.png');
+        }
+        
+    }
+
+    public function biodata()
+    {
+        return $this->hasOne(Biodata::class);
     }
 }

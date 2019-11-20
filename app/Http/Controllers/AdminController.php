@@ -3,16 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Company;
 use Session, Sentinel;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 
 class AdminController extends Controller
 {
+    public function __construct() {
+        $this->middleware('sentinel');
+    }
+    
     public function index()
     {
-        $user = User::all();
-        return view('home.index')->with('user', $user);
+        $company = Company::all();
+        return view('home.index')->with('company', $company);
     }
 
     public function create()

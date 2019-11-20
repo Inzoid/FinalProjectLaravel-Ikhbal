@@ -5,13 +5,16 @@ Route::get('/', function () {
 });
 
 //route admin
-Route::resource('/admin', 'AdminController');
-Route::get('/admin', 'AdminController@index');
-Route::get('/table', 'AdminController@show')->name('user');
-Route::get('/create', 'AdminController@create')->name('create');
-Route::post('/create', 'AdminController@store')->name('create.user');
-Route::get('/edit', 'AdminController@edit')->name('edit.user');
-Route::get('/card', 'AdminController@card')->name('edit.user');
+Route::group(['prefix' => 'admin', 'middleware' => ['sentinel', 'hasAdmin'] ],
+function () {
+    Route::resource('/admin', 'AdminController');
+    Route::get('/dashboard', 'AdminController@index')->name('admin');
+    Route::get('/table', 'AdminController@show')->name('user');
+    Route::get('/create', 'AdminController@create')->name('create');
+    Route::post('/create', 'AdminController@store')->name('create.user');
+    Route::get('/edit', 'AdminController@edit')->name('edit.user');
+    Route::get('/card', 'AdminController@card')->name('edit.user');
+});
 
 
 //route signup atau register user
@@ -32,6 +35,10 @@ Route::get('reset-password/{id}/{token}', 'ReminderController@edit')->name('remi
 Route::post('reset-password/{id}/{token}','ReminderController@update')->name('reminder.update');
 
 //Company
+Route::resource('/company', 'CompanyController');
 Route::get('company', 'CompanyController@index')->name('company');
 Route::get('create_company', 'CompanyController@create')->name('create.company');
 Route::post('create_company', 'CompanyController@store')->name('company.store');
+Route::get('edit_company', 'CompanyController@edit')->name('company.edit');
+Route::post('edit_company', 'CompanyController@update')->name('company.update');
+Route::get('job', 'CompanyController@job')->name('company.job');

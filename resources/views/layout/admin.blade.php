@@ -35,13 +35,13 @@
       <!-- User -->
       <ul class="nav align-items-center d-md-none">
         <li class="nav-item dropdown">
-          <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link nav-link-icon" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="ni ni-bell-55"></i>
           </a>
           
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
                 <img alt="Image placeholder" src="./assets/img/theme/team-1-800x800.jpg">
@@ -58,7 +58,7 @@
             </a>
            
             <div class="dropdown-divider"></div>
-            <a href="#!" class="dropdown-item">
+            <a href="{{route('logout') }}" class="dropdown-item">
               <i class="ni ni-user-run"></i>
               <span>Logout</span>
             </a>
@@ -97,20 +97,20 @@
         <!-- Navigation -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/admin">
+            <a class="nav-link" href="{{route('admin')}}">
               <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
           </li>
           
           
           <li class="nav-item">
-            <a class="nav-link" href="/table">
+            <a class="nav-link" href=" {{route('user')}} ">
             <i class="ni ni-badge text-primary"></i> Admin 
             </a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="/table">
+            <a class="nav-link" href="{{route('user')}}">
             <i class="ni ni-single-02 text-primary"></i> User 
             </a>
           </li>
@@ -159,7 +159,7 @@
         <!-- User -->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
           <li class="nav-item dropdown">
-            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link pr-0" href="{{route('logout')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
                   <img alt="Image placeholder" src="/assets/img/theme/team-4-800x800.jpg">

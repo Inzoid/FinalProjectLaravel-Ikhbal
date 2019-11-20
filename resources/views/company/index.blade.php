@@ -21,6 +21,7 @@
                     <th scope="col">Gaji</th>
                     <th scope="col">deskripsi</th>
                     <th scope="col">Waktu</th>
+                    <th scope="col">Action</th>
                     <th scope="col">Image</th>
                   </tr>
                 </thead>
@@ -44,12 +45,25 @@
                       {{$a->gaji}}
                     </td>
                     <td>
-                      {{$a->deskripsi}}
+                      {{str_limit($a->deskripsi, 30)}}
                     </td>
                     <td>
                       {{$a->waktu_bekerja}}
-                    </td>           
+                    </td>         
+                    <td>
+        <form action="{{ route('company.destroy', $a->id) }}" method="POST">    
+                   
+          <a class="btn btn-icon ni ni-settings text-primary" 
+          href="{{ route( 'company.edit', $a->id ) }}" data-toggle="tooltip" data-original-title="Edit"></a>
+
+          {{ csrf_field() }} {{ method_field('delete') }}  
+          <button class="btn btn-icon btn-2 btn-danger" type="submit" onclick="return confirm('Apa Anda Yakin?')" data-toggle="tooltip" data-original-title="Delete">
+            <span class="btn-inner--icon"><i class="ni ni-atom"></i></span>
+          </button>
+        </form>
+        </td>  
                   </tr>
+                  
                   @endforeach
 
 @endsection
