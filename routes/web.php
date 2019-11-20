@@ -44,7 +44,9 @@ Route::post('edit_company', 'CompanyController@update')->name('company.update');
 Route::get('job', 'CompanyController@job')->name('company.job');
 
 //Biodata
-
 Route::resource('/biodata', 'BiodataController');
 Route::get('biodata', 'BiodataController@index')->name('biodata');
 Route::get('show.biodata', 'BiodataController@show')->name('biodata.show');
+
+//User Dashboard
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
