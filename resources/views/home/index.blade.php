@@ -94,11 +94,11 @@
             @foreach($company as $job)
               <div class="col-sm-4">
                 <div class="card">
-                  <img class="card-img-top" src="../../assets/img/theme/team-1-800x800.jpg" alt="Card image cap" width="200" height="270">
                   <div class="card-body">
-                    <h5 class="card-title">{{$job->nama_perusahaan}}</h5>
+                    <h2 class="card-title">{{$job->nama_perusahaan}}</h2>
+                    <h5 class="card-title">{{$job->judul_pekerjaan}}</h5>
                     <p class="card-text">{{str_limit($job->deskripsi, 60)}}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href="#" class="btn btn-primary">Apply</a>
                   </div>
                 </div>
               </div>

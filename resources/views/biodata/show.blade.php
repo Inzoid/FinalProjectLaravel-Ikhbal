@@ -67,13 +67,11 @@
                   <h3 class="mb-0">My account</h3>
                 </div>
                 <div class="col-4 text-right">
-                  <a href="{{route('biodata.show')}}" class="btn btn-sm btn-primary">Lihat</a>
+                  <a href="#!" class="btn btn-sm btn-primary">Settings</a>
                 </div>
               </div>
             </div>
-      
-      <form action="{{ route('biodata.store') }}" method="POST" enctype="multipart/form-data">
-        {{ csrf_field() }}
+    
       <div class="card-body">
         
         <input type="hidden" name="user_id" value="{{ Sentinel::getUser()->id }}">
@@ -94,7 +92,8 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-first-name">Tempat Lahir</label>
-                        <input type="text" name="tempat_lahir" class="form-control form-control-alternative" placeholder="Bandung" >
+                        <input type="text" name="tempat_lahir" class="form-control form-control-alternative" 
+                        placeholder="Bandung" value="">
                       </div>
                     </div>
                     <div class="col-lg-6">

@@ -10,5 +10,7 @@ class Company extends Model
         'nama_perusahaan', 'judul_pekerjaan', 'alamat','gaji',
         'waktu_bekerja', 'deskrpisi', 'image',
     ];
+
+    
     
 }

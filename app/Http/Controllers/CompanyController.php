@@ -37,25 +37,31 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //upload profile_image
         $patchImage = '/images/company';
-        if ($request->profile_image) {
+        $modelCompany = new Company();
+        if ($request->perusahaan_image) {
             //rename file yang diupload menjadi users-random.extension file
-            $profile_image ='company-'.str_random(5).time().'.'.$request->file('image')->getClientOriginalExtension();
+            $perusahaan_image ='company-'.str_random(5).time().'.'.$request->file('image')->getClientOriginalExtension();
             //path lokasi penyimpanan file public/images/users/
-            $request->profile_image->move(public_path($patchImage), $profile_image);
-            $company->image = $profile_image;
+            $request->perusahaan_image->move(public_path($patchImage), $perusahaan_image);
+            //simpan nama file image ke field perusahaan_image
+            $modelCompany->perusahaan_image = $perusahaan_image;
         }
 
-        $company = new Company;
-        $company->nama_perusahaan = $request->nama_perusahaan;
-        $company->judul_pekerjaan = $request->judul_pekerjaan;
-        $company->alamat = $request->alamat;
-        $company->gaji = $request->gaji;
-        $company->waktu_bekerja = $request->waktu_bekerja;
-        $company->deskripsi = $request->deskripsi;
-        $company->save();
-        // dd($request->all());
+        $nama_perusahaan = $request->input('nama_perusahaan');
+        $judul_pekerjaan = $request->input('judul_pekerjaan');
+        $alamat = $request->input('alamat');
+        $gaji = $request->input('gaji');
+        $waktu_bekerja = $request->input('waktu_bekerja');
+        $deskripsi = $request->input('deskripsi');
+
+        $modelCompany->nama_perusahaan = $nama_perusahaan;
+        $modelCompany->judul_pekerjaan = $judul_pekerjaan;
+        $modelCompany->alamat = $alamat;
+        $modelCompany->gaji = $gaji;
+        $modelCompany->waktu_bekerja = $waktu_bekerja;
+        $modelCompany->deskripsi = $deskripsi;
+        $modelCompany->save();
         Session::flash("notice", "Job success created");
         return redirect()->route("company");
     }

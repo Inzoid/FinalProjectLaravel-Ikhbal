@@ -4,12 +4,13 @@
 
 <div class="container mt-3">
 <div class="col-xl-8 order-xl-1">
+<form action="{{ route('company.store') }}" method="POST" 
+        enctype="multipart/form-data">
+          {{ csrf_field() }}
           <div class="card bg-secondary shadow">
             <div class="card-header bg-white border-0">
               <div class="row align-items-center">
                 <div class="col-8">
-                <form action="{{ route('company.store') }}" method="POST" enctype="multipart/form-data">
-                    {{ csrf_field() }}
                   <h3 class="mb-0">Lengkapi Profil Perusahaan</h3>
                 </div>
                 <div class="col-4 text-right">
@@ -52,8 +53,8 @@
 
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-last-name">Image</label>
-                        <input type="file" name="image" class="form-control form-control-alternative">
+                        <label class="form-control-label" for="input-last-name">Gajssi</label>
+                        <input type="text" name="image" class="form-control form-control-alternative" placeholder="400000">
                       </div>
                     </div>
                   </div>
@@ -77,10 +78,7 @@
                   <textarea name="deskripsi" id="" class="form-control" placeholder="Deskrpisi pekerjaan." cols="30" rows="10"></textarea>
                 </div>
               </div>
-                  
-                      
-                  
-                
+             </form>   
                 <input type="submit" value="Create Job" class="btn btn-primary btn-md text-white">
               
             </div>

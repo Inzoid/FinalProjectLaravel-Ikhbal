@@ -40,6 +40,20 @@ class BiodataController extends Controller
      */
     public function store(Request $request)
     {
+        $path = '/images/biodata';
+        $pathCV = '/file/cv';
+
+        if ($request->foto_pribadi && $request->cv) {
+            $foto = 'biodata-' . str_random() . time() . '.' . $request->file('profile_image')->getClientOriginalExtension();
+            $request->foto_pribadi->move(public_path($path), $foto);
+            $biodata->foto_pribadi = $foto;
+
+            // CV
+            $cv = 'cv-' . Sentinel::getUser()->email . str_random(5) . '.' . $request->file('cv')->getClientOriginalExtension();
+            $dd = $request->cv->move(public_path($pathCV), $cv);
+            $biodata->cv = $cv;
+        }
+
         $biodata = Biodata::where('user_id', Sentinel::getUser()->id)->first();
         $user_id = Sentinel::getUser()->id;
         $biodata = new Biodata;
@@ -65,9 +79,10 @@ class BiodataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $biodata = Biodata::get();
+        return view('biodata.show')->with('biodata', $biodata);
     }
 
     /**

@@ -47,3 +47,4 @@ Route::get('job', 'CompanyController@job')->name('company.job');
 
 Route::resource('/biodata', 'BiodataController');
 Route::get('biodata', 'BiodataController@index')->name('biodata');
+Route::get('show.biodata', 'BiodataController@show')->name('biodata.show');

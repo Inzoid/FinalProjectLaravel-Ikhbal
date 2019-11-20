@@ -52,8 +52,6 @@
                     </td>         
                     <td>
       <form action="{{ route('company.destroy', $a->id) }}" method="POST">    
-        <a class="btn btn-icon ni ni-settings text-primary" 
-          href="{{ route( 'company.edit', $a->id ) }}" data-toggle="tooltip" data-original-title="Edit"></a>
 
           {{ csrf_field() }} {{ method_field('delete') }}  
           <button class="btn btn-icon btn-2 btn-danger" type="submit" onclick="return confirm('Apa Anda Yakin?')" data-toggle="tooltip" data-original-title="Delete">
