@@ -78,6 +78,6 @@ class User extends Authenticatable
 
     public function apply() 
     {
-        return $this->belongsTo(Apply::class, 'id', 'job_id');
+        return $this->belongsTo(Apply::class, 'id', 'user_id');
     }
 }

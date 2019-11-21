@@ -23,5 +23,8 @@ class Company extends Model
         }
     }
     
-    
+    public function apply() 
+    {
+        return $this->belongsTo(Apply::class, 'id', 'job_id');
+    }
 }

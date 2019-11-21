@@ -76,13 +76,20 @@
         {{ csrf_field() }}
       <div class="card-body">
         
-        <input type="hidden" name="user_id" value="{{ Sentinel::getUser()->id }}">
+        
+
+        @if(session('notice'))
+                        <div class="alert alert-default">
+                                <strong>{!!session('notice') !!}</strong>
+                        </div>
+            	@endif
 
                 <h6 class="heading-small text-muted mb-4">User information</h6>
                 <div class="pl-lg-4">
                   <div class="row">
                     <div class="col-lg-8">
                       <div class="form-group">
+                      <input type="hidden" name="user_id" value="{{ Sentinel::getUser()->id }}">
                         <label class="form-control-label" for="input-username">Nama Lengkap</label>
                         <input type="hidden" name="user_id" value="{{ Sentinel::getUser()->id }}">
                         <input type="text" name="nama" class="form-control form-control-alternative" placeholder="Username" value="{{ Sentinel::getUser()->first_name }}  {{ Sentinel::getUser()->last_name }}">
@@ -157,7 +164,7 @@
                         <input name="pendidikan" class="form-control form-control-alternative" placeholder="SMA/SMK/D3/S1" type="text">
                       </div>
                     </div>
-                  </div>
+                  </div>  
                 </div>
                 <hr class="my-4" />
                 <!-- Description -->

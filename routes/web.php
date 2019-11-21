@@ -39,8 +39,8 @@ Route::resource('/company', 'CompanyController');
 Route::get('company', 'CompanyController@index')->name('company');
 Route::get('create_company', 'CompanyController@create')->name('create.company');
 Route::post('create_company', 'CompanyController@store')->name('company.store');
-Route::get('edit_company', 'CompanyController@edit')->name('company.edit');
-Route::post('edit_company', 'CompanyController@update')->name('company.update');
+Route::get('edit_company/{id}', 'CompanyController@edit')->name('company.edit');
+Route::post('edit_company/{id}', 'CompanyController@update')->name('company.update');
 Route::get('job', 'CompanyController@job')->name('company.job');
 
 //Biodata
@@ -51,4 +51,7 @@ Route::get('show.biodata', 'BiodataController@show')->name('biodata.show');
 //User Dashboard
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/profile', 'DashboardController@profile')->name('profile');
-Route::get('logout.user', 'DashboardController@logout')->name('logout.user');
+Route::get('/logout.user', 'DashboardController@logout')->name('logout.user');
+Route::resource('/apply', 'ApplyController');
+Route::get('/status.apply','ApplyController@edit');
+Route::post('apply/{id}', 'ApplyController@store')->name('apply.buat');

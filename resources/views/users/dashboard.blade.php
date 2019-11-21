@@ -54,7 +54,10 @@
 											<h6>{{$job->nama_perusahaan}}</h6>					
 										</div>
 										<ul class="btns">
-											<li><a href="#">Apply</a></li>
+	<form action="{{ route('apply.buat',$job->id)  }}" 
+		method="POST"> {{ csrf_field() }}
+											<li><input type="submit" class="btn btn-primary" value="Apply"></li>
+										</form>
 										</ul>
 									</div>
 									<p>

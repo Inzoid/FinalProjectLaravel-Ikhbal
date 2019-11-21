@@ -66,6 +66,7 @@ class BiodataController extends Controller
         $biodata->keterangan = $request->keterangan;
         $biodata->cv = $request->cv;
         $biodata->pendidikan = $request->pendidikan;
+        // dd($request->all());
         $biodata->save();
         Session::flash('notice', 'Update Profile Sukses');
         return redirect()->back();

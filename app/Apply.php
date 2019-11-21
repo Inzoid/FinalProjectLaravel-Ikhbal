@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Apply extends Model
 {
     protected $fillable = [
-        'id','user_id','job_id'
+        'user_id','job_id','status_apply'
     ];
 
-    public function job() 
+    public function company() 
     {
-        return $this->hasOne(Biodata::class, 'id', 'job_id');
+        return $this->hasOne(Company::class, 'id', 'job_id');
     }
 
     public function user() 

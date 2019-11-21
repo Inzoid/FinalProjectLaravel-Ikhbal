@@ -101,6 +101,7 @@
                     <h5 class="card-title">{{$job->judul_pekerjaan}}</h5>
                     <p class="card-text">{{str_limit($job->deskripsi, 60)}}</p>
                     <a href="#" class="btn btn-primary">Apply</a>
+                    <a href="{{ route('company.edit', $job->id) }}" class="btn btn-info">Edit</a>
                   </div>
                 </div>
               </div>
