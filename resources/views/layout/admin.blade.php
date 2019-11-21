@@ -58,9 +58,9 @@
             </a>
            
             <div class="dropdown-divider"></div>
-            <a href="{{route('logout') }}" class="dropdown-item">
+            <a href="{{route('logout.admin') }}" class="dropdown-item">
               <i class="ni ni-user-run"></i>
-              <span>Logout</span>
+              <span>logout.admin</span>
             </a>
           </div>
         </li>
@@ -159,7 +159,7 @@
         <!-- User -->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
           <li class="nav-item dropdown">
-            <a class="nav-link pr-0" href="{{route('logout')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link pr-0" href="{{route('logout.admin')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
                   <img alt="Image placeholder" src="/assets/img/theme/team-4-800x800.jpg">
@@ -179,7 +179,7 @@
               </a>
              
               <div class="dropdown-divider"></div>
-              <a href="{{ route('logout') }}" class="dropdown-item">
+              <a href="{{ route('logout.admin') }}" class="dropdown-item">
                 <i class="ni ni-user-run"></i>
                 <span>Logout</span>
               </a>

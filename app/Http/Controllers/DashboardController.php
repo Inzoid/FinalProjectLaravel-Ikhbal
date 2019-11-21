@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Company;
 use App\Biodata;
+use Sentinel;
+use Session;
 
 class DashboardController extends Controller
 {
@@ -44,5 +46,12 @@ class DashboardController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function logout()
+    {
+        Sentinel::logout();
+        Session::flash('notice', 'Logout berhasil');
+        return redirect('/dashboard');
     }
 }

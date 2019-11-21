@@ -32,7 +32,7 @@
 				          <li><a href="contact.html">Contact</a></li>
 						  @if (Sentinel::check())
 							<li><b><a>Welcome {!! Sentinel::getUser()->first_name !!}</a></b></li>
-							<li><a class="ticker-btn" href="{{ route('logout') }}">Logout</a></li>
+							<li><a class="ticker-btn" href="{{ route('logout.user') }}">Logout</a></li>
 							@else
 				          <li><a class="ticker-btn" href="{{route('signup')}}">Signup</a></li>
 				          <li><a class="ticker-btn" href="{{route('login')}}">Login</a></li>				          				          

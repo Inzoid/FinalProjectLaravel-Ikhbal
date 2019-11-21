@@ -9,21 +9,26 @@
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
-								Welcome To Job Builder			
+								Welcome To Job Builder	<br>
+								@if (Sentinel::check())
+								{!! Sentinel::getUser()->first_name !!} 
+								{!! Sentinel::getUser()->last_name !!}	
+								@endif
 							</h1>	
 						</div>											
 					</div>
 				</div>
 			</section>
 
-			@if(session('notice'))
-                        <div class="alert alert-default">
-                                <strong>{!!session('notice') !!}</strong>
-                        </div>
-            @endif
+		
 
             <section class="post-area section-gap">
 				<div class="container">
+				@if(session('notice'))
+                        <div class="alert alert-default">
+                                <strong>{!!session('notice') !!}</strong>
+                        </div>
+            	@endif
 					<div class="row justify-content-center d-flex">
                     @foreach ($dashboard as $job)
 						<div class="col-lg-12 post-list">

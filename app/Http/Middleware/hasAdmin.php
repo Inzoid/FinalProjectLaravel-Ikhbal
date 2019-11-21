@@ -20,6 +20,6 @@ class hasAdmin
         if(Sentinel::getUser()->roles()->first()->slug == 'admin') {
             return $next($request);
         }
-            return redirect()->route('biodata');
+            return redirect()->route('dashboard');
     }
 }

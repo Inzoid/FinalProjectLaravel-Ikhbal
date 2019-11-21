@@ -24,7 +24,7 @@ Route::post('signup', 'UsersController@signup_store')->name('signup.store');
 //route login
 Route::get('login', 'SessionsController@login')->name('login');
 Route::post('login', 'SessionsController@login_store')->name('login.store');
-Route::get('logout', 'SessionsController@logout')->name('logout');
+Route::get('logout', 'SessionsController@logout')->name('logout.admin');
 
 //Forgot password
 Route::get('/forgot-password', 'ReminderController@create')->name('email.create');
@@ -51,3 +51,4 @@ Route::get('show.biodata', 'BiodataController@show')->name('biodata.show');
 //User Dashboard
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/profile', 'DashboardController@profile')->name('profile');
+Route::get('logout.user', 'DashboardController@logout')->name('logout.user');
