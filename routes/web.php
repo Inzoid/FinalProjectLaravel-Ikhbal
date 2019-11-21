@@ -50,3 +50,4 @@ Route::get('show.biodata', 'BiodataController@show')->name('biodata.show');
 
 //User Dashboard
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('/profile', 'DashboardController@profile')->name('profile');

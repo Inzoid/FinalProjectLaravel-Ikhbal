@@ -27,12 +27,16 @@
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
-				          <li class="menu-active"><a href="index.html">Home</a></li>
-				          <li><a href="about-us.html">About Us</a></li>
-				          <li><a href="category.html">Category</a></li>
+				          <li class="menu-active"><a href="{{ route('dashboard') }}">Home</a></li>
+				          <li><a href="{{ route('profile') }}">Profile</a></li>
 				          <li><a href="contact.html">Contact</a></li>
+						  @if (Sentinel::check())
+							<li><b><a>Welcome {!! Sentinel::getUser()->first_name !!}</a></b></li>
+							<li><a class="ticker-btn" href="{{ route('logout') }}">Logout</a></li>
+							@else
 				          <li><a class="ticker-btn" href="{{route('signup')}}">Signup</a></li>
 				          <li><a class="ticker-btn" href="{{route('login')}}">Login</a></li>				          				          
+						@endif
 				        </ul>
 				      </nav><!-- #nav-menu-container -->		    		
 			    	</div>

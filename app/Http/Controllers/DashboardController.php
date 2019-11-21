@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Company;
+use App\Biodata;
 
 class DashboardController extends Controller
 {
@@ -14,9 +15,10 @@ class DashboardController extends Controller
         return view('users.dashboard')->with('dashboard', $dashboard);
     }
 
-    public function create()
+    public function profile()
     {
-        //
+        $biodata = Biodata::all();
+        return view('users.profile')->with('biodata', $biodata);
     }
 
     public function store(Request $request)

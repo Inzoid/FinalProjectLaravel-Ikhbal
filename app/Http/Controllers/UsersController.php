@@ -7,6 +7,7 @@ use Session;
 use App\Http\Requests\UserRequest;
 use App\User;
 use App\Role;
+use App\Jobs\Register;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class UsersController extends Controller
     {
         DB::beginTransaction();
         try {
-            //cari role 'admin'
+            //cari role 'user'
             $role = Sentinel::findRoleBySlug('user');
             $role_id = $role->id;
 

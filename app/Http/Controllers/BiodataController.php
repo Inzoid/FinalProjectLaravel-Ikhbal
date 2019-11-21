@@ -40,23 +40,21 @@ class BiodataController extends Controller
      */
     public function store(Request $request)
     {
-        $path = '/images/biodata';
-        $pathCV = '/file/cv';
-
-        if ($request->foto_pribadi && $request->cv) {
-            $foto = 'biodata-' . str_random() . time() . '.' . $request->file('profile_image')->getClientOriginalExtension();
-            $request->foto_pribadi->move(public_path($path), $foto);
-            $biodata->foto_pribadi = $foto;
-
-            // CV
-            $cv = 'cv-' . Sentinel::getUser()->email . str_random(5) . '.' . $request->file('cv')->getClientOriginalExtension();
-            $dd = $request->cv->move(public_path($pathCV), $cv);
-            $biodata->cv = $cv;
+        $patchImage = '/images/biodata';
+        $modelBiodata = new Biodata();
+        if ($request->profile_image) {
+            //rename file yang diupload menjadi users-random.extension file
+            $profile_image ='biodata-'.str_random(5).time().'.'.$request->file('profile_image')->getClientOriginalExtension();
+            //path lokasi penyimpanan file public/profile_images/users/
+            $request->profile_image->move(public_path($patchImage), $profile_image);
+            //simpan nama file profile_image ke field profile_image
+            $modelBiodata->profile_image = $profile_image;
         }
 
+        //relasi ke tabel
         $biodata = Biodata::where('user_id', Sentinel::getUser()->id)->first();
         $user_id = Sentinel::getUser()->id;
-        $biodata = new Biodata;
+
         $biodata->user_id = $user_id;
         $biodata->nama = $request->nama;
         $biodata->tempat_lahir = $request->tempat_lahir;

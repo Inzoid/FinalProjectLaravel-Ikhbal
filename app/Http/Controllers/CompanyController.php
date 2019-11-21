@@ -39,13 +39,13 @@ class CompanyController extends Controller
     {
         $patchImage = '/images/company';
         $modelCompany = new Company();
-        if ($request->perusahaan_image) {
+        if ($request->image) {
             //rename file yang diupload menjadi users-random.extension file
-            $perusahaan_image ='company-'.str_random(5).time().'.'.$request->file('image')->getClientOriginalExtension();
+            $image ='company-'.str_random(5).time().'.'.$request->file('image')->getClientOriginalExtension();
             //path lokasi penyimpanan file public/images/users/
-            $request->perusahaan_image->move(public_path($patchImage), $perusahaan_image);
-            //simpan nama file image ke field perusahaan_image
-            $modelCompany->perusahaan_image = $perusahaan_image;
+            $request->image->move(public_path($patchImage), $image);
+            //simpan nama file image ke field image
+            $modelCompany->image = $image;
         }
 
         $nama_perusahaan = $request->input('nama_perusahaan');

@@ -75,4 +75,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Biodata::class);
     }
+
+    public function apply() 
+    {
+        return $this->belongsTo(Apply::class, 'id', 'job_id');
+    }
 }

@@ -9,12 +9,18 @@
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
-								Job Apply				
+								Welcome To Job Builder			
 							</h1>	
 						</div>											
 					</div>
 				</div>
 			</section>
+
+			@if(session('notice'))
+                        <div class="alert alert-default">
+                                <strong>{!!session('notice') !!}</strong>
+                        </div>
+            @endif
 
             <section class="post-area section-gap">
 				<div class="container">
@@ -23,7 +29,7 @@
 						<div class="col-lg-12 post-list">
 							<div class="single-post d-flex flex-row">
 								<div class="thumb">
-									<img src="user/img/geek.png" width="120">
+									<img src="{{ $job->image() }}" width="120">
 									<ul class="tags">
 										<li>
 											<a href="#">Art</a>

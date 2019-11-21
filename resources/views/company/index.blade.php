@@ -51,6 +51,9 @@
                       {{$a->waktu_bekerja}}
                     </td>         
                     <td>
+                      <img src="{{ $a->image() }}" width="100">
+                    </td>
+                    <td>
       <form action="{{ route('company.destroy', $a->id) }}" method="POST">    
 
           {{ csrf_field() }} {{ method_field('delete') }}  

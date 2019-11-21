@@ -94,6 +94,8 @@
             @foreach($company as $job)
               <div class="col-sm-4">
                 <div class="card">
+                <img class="card-img-top" src="{{$job->image() }}" width="70" alt="Card image cap">
+
                   <div class="card-body">
                     <h2 class="card-title">{{$job->nama_perusahaan}}</h2>
                     <h5 class="card-title">{{$job->judul_pekerjaan}}</h5>

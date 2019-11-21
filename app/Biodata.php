@@ -17,4 +17,11 @@ class Biodata extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function apply() 
+    {
+        return $this->belongsTo(Apply::class, 'id', 'user_id');
+    }
+
+    
 }
