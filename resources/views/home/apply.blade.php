@@ -5,9 +5,15 @@
     
 <div class="container mt-2">
   <div class="main-content">
-       @if(session('notice'))
+      @if(session('notice'))
             <div class="alert alert-default">
                     <strong>{!!session('notice') !!}</strong>
+            </div>
+      @endif
+
+      @if(session('error'))
+            <div class="alert alert-default">
+                    <strong>{!!session('error') !!}</strong>
             </div>
       @endif
 <div class="table-responsive">
@@ -41,32 +47,34 @@
                         if ($a->status_apply=='Menunggu') {
                           $class = 'warning';
                         } elseif ($a->status_apply=='Diterima') {
-                          $class = 'default';
+                          $class = 'success';
                         } else {
                           $class = 'danger';
                         }
                       ?>
-                  <div class="col-5 alert alert-{{$class}}">
-                    <strong>{{$a->status_apply}}</strong>
-                  </div>    
+                  <button type="button" class="btn btn-{{$class}} btn-sm">{{$a->status_apply}}</button> 
                       
                       </span>
                     </td>     
                     <td>
-                            <form class="forms-sample" name="contactForm" method="post" action="{{ route('apply.update', $a->id)}}">
+                            <form method="post" action="{{ route('apply.update', $a->id)}}">
                                 {{ csrf_field() }} {{method_field('put')}}
                                 <input type="hidden" name="status_apply" value="Diterima">
-                                <button type="submit" class="btn btn-primary" 
-                                onclick="return confirm('Terima Pelamar?')">
-                                    <i class="menu-icon mdi mdi-check-all" title="Terima"></i>
-                                </button>
+                                  <button type="submit" onclick="return confirm('Terima Pelamar?')" 
+                                  class="btn btn-icon btn-3 btn-primary" type="button">
+                                    <span class="btn-inner--icon"><i class="ni ni-diamond"></i></span>                    
+                                    <span class="btn-inner--text">Accept</span>                                
+                                  </button>
                             </form>
-                            <form class="forms-sample" name="contactForm" method="post" action="{{ route('apply.update', $a->id)}}">
+                            <div class="mt-1">
+                            <form method="post" action="{{ route('apply.update', $a->id)}}">
                                 {{ csrf_field() }} {{method_field('put')}}
-                                <input type="hidden" name="status" value="ditolak">
-                                <button type="button" class="btn btn-icons btn-rounded btn-outline-danger" onclick="return confirm('Tolak Pelamar?')">
-                                    <i class="menu-icon mdi mdi-close" title="Tolak"></i>
-                                </button>
+                                <input type="hidden" name="status_apply" value="Ditolak">
+                                  <button type="submit" onclick="return confirm('Tolak Pelamar')" 
+                                  class="btn btn-icon btn-3 btn-danger" type="button">
+                                    <span class="btn-inner--icon"><i class="ni ni-button-power"></i></span>                    
+                                    <span class="btn-inner--text" >Reject</span>                                
+                                  </button>
                             </form>
                         </td>
         <td>

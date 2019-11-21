@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Company;
+use App\Apply;
 use App\Biodata;
-use Sentinel;
-use Session;
+use Sentinel, Session;
 
 class DashboardController extends Controller
 {
@@ -28,9 +28,10 @@ class DashboardController extends Controller
         //
     }
 
-    public function show($id)
+    public function show()
     {
-        //
+        $apply = Apply::with('user')->with('company')->get();
+        return view('users.status')->with('apply', $apply);
     }
 
     public function edit($id)

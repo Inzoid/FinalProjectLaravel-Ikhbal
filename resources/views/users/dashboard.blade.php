@@ -24,6 +24,7 @@
 
             <section class="post-area section-gap">
 				<div class="container">
+				
 				@if(session('notice'))
                         <div class="alert alert-primary">
 							
@@ -36,6 +37,8 @@
 							<input type="submit" class="btn btn-danger" value="{!!session('error') !!}">
                         </div>
             	@endif
+				<h3>Recent Job</h3>
+
 					<div class="row justify-content-center d-flex">
                     @foreach ($dashboard as $job)
 						<div class="col-lg-12 post-list">
@@ -61,10 +64,12 @@
 											<h6>{{$job->nama_perusahaan}}</h6>					
 										</div>
 										<ul class="btns">
-	<form action="{{ route('apply.buat',$job->id)  }}" 
-		method="POST"> {{ csrf_field() }}
+										@if (Sentinel::check())
+										<form action="{{ route('apply.buat',$job->id)  }}" 
+											method="POST"> {{ csrf_field() }}
 											<li><input type="submit" class="btn btn-primary" value="Apply"></li>
 										</form>
+										@endif
 										</ul>
 									</div>
 									<p>

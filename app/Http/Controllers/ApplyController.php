@@ -51,10 +51,10 @@ class ApplyController extends Controller
         $modelApply->save();
 
         if ($status == 'Diterima') {
-            Session::flash('notice', '1 Pelamar diterima!');
+            Session::flash('notice', 'Selamat pelamar diterima!');
             //aksi email terima
         } else {
-            Session::flash('error', '1 Pelamar ditolak');
+            Session::flash('error', 'Maaf Pelamar ditolak');
             //aksi email tolak
         }
         return redirect()->route('apply');

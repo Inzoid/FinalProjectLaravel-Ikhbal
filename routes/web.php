@@ -55,3 +55,4 @@ Route::get('/logout.user', 'DashboardController@logout')->name('logout.user');
 Route::resource('/apply', 'ApplyController');
 Route::get('/status.apply','ApplyController@edit')->name('apply');
 Route::post('apply/{id}', 'ApplyController@store')->name('apply.buat');
+Route::get('status.pelamar', 'DashboardController@show')->name('status.pelamar');
