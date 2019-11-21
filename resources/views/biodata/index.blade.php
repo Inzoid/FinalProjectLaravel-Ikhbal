@@ -155,7 +155,8 @@
                     <div class="col-lg-12">
                       <div class="form-group">
                         <label class="form-control-label" for="input-last-name">CV</label>
-                        <input type="file" name="cv" class="form-control form-control-alternative" placeholder="Last name">
+                        <input type="file" name="cv" class="form-control form-control-alternative" 
+                        placeholder="Last name">
                       </div>
                     </div>
                     <div class="col-md-12">

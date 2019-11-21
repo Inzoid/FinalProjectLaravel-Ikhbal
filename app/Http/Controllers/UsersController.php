@@ -29,6 +29,7 @@ class UsersController extends Controller
         $credentials = [
             'first_name' => $request->input('first_name'),
             'last_name'  => $request->input('last_name'),
+            'tanggal_lahir'  => $request->input('tanggal_lahir'),
             'email'      => $request->input('email'),
             'password'   => $request->input('password'),
         ];

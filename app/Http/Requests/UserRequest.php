@@ -27,8 +27,16 @@ class UserRequest extends FormRequest
         return [
             'email' => 'required|email|unique:users,email,' . $id,
             'password' => 'required|min: 8|confirmed',
+            'tanggal_lahir' => 'required|before:17 years ago',
             'first_name' => 'required',
             'last_name'  => 'required'
+        ];
+    }
+
+    public function message()
+    {
+        return[
+            'tanggal_lahir.before' => 'Umur minimal 17 Tahun',
         ];
     }
 }

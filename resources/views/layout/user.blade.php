@@ -28,7 +28,7 @@
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
 				          <li class="menu-active"><a href="{{ route('dashboard') }}">Home</a></li>
-				          <li><a href="{{ route('profile') }}">Profile</a></li>
+				          <li><a href="{{ route('biodata') }}">Profile</a></li>
 				          <li><a href="contact.html">Contact</a></li>
 						  @if (Sentinel::check())
 							<li><b><a>Welcome {!! Sentinel::getUser()->first_name !!}</a></b></li>

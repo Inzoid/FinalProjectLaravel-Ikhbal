@@ -40,21 +40,23 @@ class BiodataController extends Controller
      */
     public function store(Request $request)
     {
-        $patchImage = '/images/biodata';
-        $modelBiodata = new Biodata();
+        $path = '/images/biodata';
+        $pathCV = '/file/cv';
+
+        $patchImage = '/images/biodatas';
+        $modelCompany = new Biodata();
         if ($request->profile_image) {
             //rename file yang diupload menjadi users-random.extension file
-            $profile_image ='biodata-'.str_random(5).time().'.'.$request->file('profile_image')->getClientOriginalExtension();
-            //path lokasi penyimpanan file public/profile_images/users/
+            $profile_image ='company-'.str_random(5).time().'.'.$request->file('profile_image')->getClientOriginalExtension();
+            //path lokasi penyimpanan file public/images/users/
             $request->profile_image->move(public_path($patchImage), $profile_image);
-            //simpan nama file profile_image ke field profile_image
-            $modelBiodata->profile_image = $profile_image;
+            //simpan nama file image ke field image
+            $modelCompany->profile_image = $profile_image;
         }
 
-        //relasi ke tabel
         $biodata = Biodata::where('user_id', Sentinel::getUser()->id)->first();
         $user_id = Sentinel::getUser()->id;
-
+        $biodata = new Biodata;
         $biodata->user_id = $user_id;
         $biodata->nama = $request->nama;
         $biodata->tempat_lahir = $request->tempat_lahir;
@@ -66,12 +68,10 @@ class BiodataController extends Controller
         $biodata->keterangan = $request->keterangan;
         $biodata->cv = $request->cv;
         $biodata->pendidikan = $request->pendidikan;
-        // dd($request->all());
         $biodata->save();
         Session::flash('notice', 'Update Profile Sukses');
         return redirect()->back();
     }
-
     /**
      * Display the specified resource.
      *

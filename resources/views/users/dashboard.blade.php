@@ -25,8 +25,15 @@
             <section class="post-area section-gap">
 				<div class="container">
 				@if(session('notice'))
+                        <div class="alert alert-primary">
+							
+							{!!session('notice') !!}
+                        </div>
+            	@endif
+
+				@if(session('error'))
                         <div class="alert alert-default">
-                                <strong>{!!session('notice') !!}</strong>
+							<input type="submit" class="btn btn-danger" value="{!!session('error') !!}">
                         </div>
             	@endif
 					<div class="row justify-content-center d-flex">

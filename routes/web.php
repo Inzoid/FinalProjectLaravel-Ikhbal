@@ -53,5 +53,5 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/profile', 'DashboardController@profile')->name('profile');
 Route::get('/logout.user', 'DashboardController@logout')->name('logout.user');
 Route::resource('/apply', 'ApplyController');
-Route::get('/status.apply','ApplyController@edit');
+Route::get('/status.apply','ApplyController@edit')->name('apply');
 Route::post('apply/{id}', 'ApplyController@store')->name('apply.buat');
