@@ -52,9 +52,8 @@
 										<li>
 											<a href="#">Media</a>
 										</li>
-										
-											&nbsp	&nbsp&nbsp	
-										
+					
+											&nbsp	&nbsp&nbsp						
 									</ul>
 								</div>
 								<div class="details">
@@ -67,7 +66,9 @@
 										@if (Sentinel::check())
 										<form action="{{ route('apply.buat',$job->id)  }}" 
 											method="POST"> {{ csrf_field() }}
-											<li><input type="submit" class="btn btn-primary" value="Apply"></li>
+											<div class="ml-4">
+											<input type="submit" class="btn btn-primary" value="Apply">
+											</div>
 										</form>
 										@endif
 										</ul>
@@ -85,6 +86,8 @@
 							</div>
 						</div>
                     @endforeach
+					
+					{!! $dashboard->links() !!}
 									
 
 						</div>

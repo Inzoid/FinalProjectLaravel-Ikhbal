@@ -92,7 +92,34 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $patchImage = 'images/company/';
+        $company = Company::find($id);
+        $image = public_path("images/company/" . $company->image);
+
+        if ($request->image) {
+            $image ='company-'.str_random(5).time(). '.' .$request->file('image')->getClientOriginalExtension();
+
+            $request->image->move(public_path('images/company/'), $image);
+            $company->image = $image;
+        }
+
+        $nama_perusahaan = $request->get('nama_perusahaan');
+        $judul_pekerjaan = $request->get('judul_pekerjaan');
+        $waktu_bekerja = $request->get('waktu_bekerja');
+        $gaji = $request->get('gaji');
+        $alamat = $request->get('alamat');
+        $deskripsi = $request->get('deskripsi');
+
+        $company->nama_perusahaan = $nama_perusahaan;
+        $company->judul_pekerjaan = $judul_pekerjaan;
+        $company->waktu_bekerja = $waktu_bekerja;
+        $company->gaji = $gaji;
+        $company->alamat = $alamat;
+        $company->deskripsi = $deskripsi;
+        $company->save();
+
+        Session::flash('notice', 'Update Company success');
+        return redirect()->route('admin');
     }
 
     /**

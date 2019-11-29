@@ -14,6 +14,7 @@ class DashboardController extends Controller
     public function index()
     {
         $dashboard = Company::all();
+        $dashboard = Company::paginate(3);
         return view('users.dashboard')->with('dashboard', $dashboard);
     }
 

@@ -14,6 +14,16 @@ function () {
     Route::post('/create', 'AdminController@store')->name('create.user');
     Route::get('/edit', 'AdminController@edit')->name('edit.user');
     Route::get('/card', 'AdminController@card')->name('edit.user');
+    Route::get('/status.apply','ApplyController@edit')->name('apply');
+    //Company
+    Route::resource('/company', 'CompanyController');
+    Route::get('company', 'CompanyController@index')->name('company');
+    Route::get('create_company', 'CompanyController@create')->name('create.company');
+    Route::post('create_company', 'CompanyController@store')->name('company.store');
+    Route::get('/edit_company/{id}', 'CompanyController@edit')->name('company.edit');
+    Route::put('/edit_company/{id}', 'CompanyController@update')->name('company.update');
+    Route::get('job', 'CompanyController@job')->name('company.job');
+
 });
 
 
@@ -34,15 +44,6 @@ Route::post('/forgot-password', 'ReminderController@store')->name('email.store')
 Route::get('reset-password/{id}/{token}', 'ReminderController@edit')->name('reminder.edit');
 Route::post('reset-password/{id}/{token}','ReminderController@update')->name('reminder.update');
 
-//Company
-Route::resource('/company', 'CompanyController');
-Route::get('company', 'CompanyController@index')->name('company');
-Route::get('create_company', 'CompanyController@create')->name('create.company');
-Route::post('create_company', 'CompanyController@store')->name('company.store');
-Route::get('edit_company/{id}', 'CompanyController@edit')->name('company.edit');
-Route::post('edit_company/{id}', 'CompanyController@update')->name('company.update');
-Route::get('job', 'CompanyController@job')->name('company.job');
-
 //Biodata
 Route::resource('/biodata', 'BiodataController');
 Route::get('biodata', 'BiodataController@index')->name('biodata');
@@ -53,6 +54,5 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/profile', 'DashboardController@profile')->name('profile');
 Route::get('/logout.user', 'DashboardController@logout')->name('logout.user');
 Route::resource('/apply', 'ApplyController');
-Route::get('/status.apply','ApplyController@edit')->name('apply');
 Route::post('apply/{id}', 'ApplyController@store')->name('apply.buat');
 Route::get('status.pelamar', 'DashboardController@show')->name('status.pelamar');

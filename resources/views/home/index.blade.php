@@ -13,8 +13,17 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Akun</h5>
-                      <span class="h2 font-weight-bold mb-0">17</span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">User</h5>
+                      <span class="h2 font-weight-bold mb-0">
+                      <?php  $conn = new mysqli('localhost', 'root', '', 'job');
+                        $sqlCommand = "SELECT COUNT(*) FROM users"; 
+                        $query = mysqli_query($conn, $sqlCommand) or die (mysqli_error()); 
+                        $row = mysqli_fetch_row($query);
+                        echo $row[0];
+                        mysqli_free_result($query); 
+                        mysqli_close($conn);
+                      ?>
+                      </span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-primary text-white rounded-circle shadow">
@@ -33,12 +42,21 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">E-Mail</h5>
-                      <span class="h2 font-weight-bold mb-0">2,356</span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Company</h5>
+                      <span class="h2 font-weight-bold mb-0">
+                      <?php  $conn = new mysqli('localhost', 'root', '', 'job');
+                        $sqlCommand = "SELECT COUNT(*) FROM companies"; 
+                        $query = mysqli_query($conn, $sqlCommand) or die (mysqli_error()); 
+                        $row = mysqli_fetch_row($query);
+                        echo $row[0];
+                        mysqli_free_result($query); 
+                        mysqli_close($conn);
+                      ?>
+                      </span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-primary text-white rounded-circle shadow">
-                        <i class="ni ni-email-83"></i>
+                        <i class="ni ni-hat-3"></i>
                       </div>
                     </div>
                   </div>
@@ -53,12 +71,21 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Artikel</h5>
-                      <span class="h2 font-weight-bold mb-0">924</span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Status Apply</h5>
+                      <span class="h2 font-weight-bold mb-0">
+                      <?php  $conn = new mysqli('localhost', 'root', '', 'job');
+                        $sqlCommand = "SELECT COUNT(*) FROM applies"; 
+                        $query = mysqli_query($conn, $sqlCommand) or die (mysqli_error()); 
+                        $row = mysqli_fetch_row($query);
+                        echo $row[0];
+                        mysqli_free_result($query); 
+                        mysqli_close($conn);
+                      ?>
+                      </span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-primary text-white rounded-circle shadow">
-                        <i class="ni ni-laptop"></i>
+                        <i class="ni ni-bell-55"></i>
                       </div>
                     </div>
                   </div>
